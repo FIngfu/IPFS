@@ -1,0 +1,67 @@
+Antoine Lacoste
+Camille Colvray
+Fatia Hassouni
+
+Tp Blockchain, 12 juin 18
+
+
+
+Projet Solimage
+
+ 
+
+
+
+Notre projet, Solimage, permet aux détenteurs de photos, d’image, de sauvegarder leur projet, d’authentifier leur travail et de faire valoir leur droit quant à l’utilisation de leur propriété. 
+
+Comment avons-nous réalisé notre projet? 
+
+Tout d’abord nous nous sommes concentrés sur la façon de procéder, comment permettre à nos clients de sauvegarder leur travail? 
+Nous nous sommes alors, suite à notre module Blockchain, intéressé à différentes façon de faire, différentes technologies.
+Nous avons finalement décidé de procéder de la façon suivante:
+
+•	L’utilisateur se connecte sur son compte Metamask
+•	Il choisit ensuite l’image qu’il veut uploader
+•	L’image est chiffré avec la clé publique de l’utilisateur
+•	On calcule le hash de l’image chiffrée et on consulte le smart contract pour savoir si l’image à deja été publiée ou pas.
+•	Si l’image chiffrée n’a pas été publiée, on l’upload sur IPFS
+•	Si l’image a déjà été publiée nous le rappelons à l’utilisateur
+•	Nous faisons une transaction avec le hash sur la blockchain et l’adresse du propriétaire pour l’insérer dans le contrat
+•	Lorsqu’une personne souhaite récupérer l’image avec un hash, notre interface va lire la blockchain pour vérifier que l’adresse faisant la requête possède bien des droits d’auteur ou à défaut d’utilisation de l’image.
+•	Le propriétaire peut assigner des adresses comme pouvant accéder à la ressource.
+•	Lorsque quelqu’un qui n’est pas le propriétaire veut récupérer la ressource, le serveur utilise un proxy de re encryption pour chiffrer le fichier pour que celui qui veut accéder au fichier puisse le déchiffrer et seulement lui.
+•	Seul une adresse qui n’est pas un contrat peut récupérer et poster une image.
+
+Pour mettre ce projet en place, nous avons tout d’abord étudié les outils et technologies utilisés pour Solimage. 
+
+Nous avons pu trouver les informations nécessaires à notre compréhension de l’ipfs sur https://www.supinfo.com/articles/single/2787-ipfs-web-p2p	
+L’exercice que nous avons réalisé dans le cadre du module blockchain(découverte de l’IPFS) nous a également permis de mieux appréhender cette technologie. 
+
+ 	Pour ce qui est du smart contract nous avons d’abord fait quelques recherches sur des sites tels que https://www.ethereum.org/ et nous les avons mis à profit avec nos cours de cyber sécurité combiné au cours de blockchain.   
+
+Quant au proxy de ré encryption, nous l’avons découvert durant le module blockchain et nous avons pu le mettre en place dans le cadre de notre projet. 
+Le schéma ci-dessous décrit ce procédé tel que nous le voyons, le comprenons: 
+
+
+
+ 
+
+
+
+
+
+
+Quelles sont les limites que nous envisageons à ce stade?
+
+On ne peut certifier que l’image ou la photos uploader par un de nos clients lui appartient bel et bien. Nous appliquons le système des enveloppes soleau, à savoir, si une personne prends une photo mais ne fait pas valoir son droit de suite, une autre peut récupérer les droits d’utilisations et de propriété de cette même photo. 
+
+De même, aujourd’hui, nous ne sommes en mesure de vérifier si l’image uploadé n’a pas été légèrement modifié. En modifiant ne serait ce qu’un seul bit d’une image, son hash change et nous nous retrouvons avec deux images “quasiment” similaires dans notre base d’images. Les droits d’utilisations de l’image falsifié peuvent donc être récupéré par l’usurpateur. 
+
+Quels sont nos axes d’améliorations? 
+
+Nous souhaitons par la suite, établir notre propre comparateur d’image et ainsi vérifier avant uploadé de fichier qu’une image n’a pas déjà des droits d’auteurs sur un autre catalogue d’image.  
+Par la suite nous comptons également mettre en place la possibilité de payer pour utiliser le droit de l’image. Ainsi un artiste pourra vendre l’utilisation de ses œuvres. 
+
+
+
+
